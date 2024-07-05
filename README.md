@@ -3,7 +3,7 @@
 This Solidity program is a simple program that demonstrates creation, deployment, burning and transfer of one's own ERC20 tokens. 
 ## Description
 
-This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain.
+This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. Here, I have named my token as "Metamint" and taken its symbol as "MM". You can use any name and symbol of your own choice.
 
 ## Getting Started
 
@@ -20,7 +20,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
 contract metaMintToken is ERC20 {
-    constructor() ERC20("MetaMint", "MM") {
+    constructor() ERC20("MetaMint", "MM") {   //name and symbol
         _mint(msg.sender, 10);
     }
 
