@@ -1,6 +1,6 @@
-# ERC20 Tokwen
+# ERC20 Token
 
-This Solidity program is a simple "ERC20 Token" program that demonstrates creation, deployment, burning and transfer of one's own ERC20 tokens. 
+This Solidity program is a simple program that demonstrates creation, deployment, burning and transfer of one's own ERC20 tokens. 
 ## Description
 
 This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain.
@@ -30,12 +30,6 @@ contract metaMintToken is ERC20 {
 
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
-    }
-}
-
-contract HelloWorld {
-    function sayHello() public pure returns (string memory) {
-        return "Hello World!";
     }
 }
 
