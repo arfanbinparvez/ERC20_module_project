@@ -14,14 +14,15 @@ To run this program, you can use Remix, an online Solidity IDE. To get started, 
 Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., HelloWorld.sol). Copy and paste the following code into the file:
 
 ```javascript
+// SPDX-License-Identifier: MIT 
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
 
-contract metaMintToken is ERC20 {
-    constructor() ERC20("MetaMint", "MM") {   //name and symbol
-        _mint(msg.sender, 10);
+contract metaMintToken is ERC20, ERC20Permit {
+    constructor() ERC20("MetaMint", "MM") ERC20Permit("MetaMint") {
+        
     }
 
     function mint(address to, uint256 amount) public {
@@ -30,6 +31,11 @@ contract metaMintToken is ERC20 {
 
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
+    }
+
+    function transfer(address to, uint256 amount) public override returns (bool) {
+        _transfer(msg.sender, to, amount);
+        return true;
     }
 }
 
